@@ -1,0 +1,49 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:text="@string/visibility_options"
+        android:title="@string/visibility_options"
+        android:visibility="visible"
+        app:title="@string/visibility_options">
+
+        <SeekBarPreference
+            android:defaultValue="true"
+            android:key="radius"
+            android:longClickable="false"
+            android:max="500"
+            android:progress="50"
+            android:summary="@string/select_radius"
+            android:title="@string/radius"
+            android:visibility="visible"
+            app:key="radius"
+            android:indeterminate="false"
+            app:showSeekBarValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:text="@string/update_interval"
+        android:title="@string/update_interval"
+        android:visibility="visible"
+        app:title="@string/update_interval">
+
+        <!--suppress AndroidUnknownAttribute -->
+        <SeekBarPreference
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:defaultValue="true"
+            android:key="updateInterval"
+            android:longClickable="false"
+            android:max="20"
+            android:progress="3"
+            android:summary="@string/select_update_string"
+            android:title="@string/update_interval"
+            android:visibility="visible"
+            app:key="updateInterval"
+            android:indeterminate="false"
+            app:showSeekBarValue="true"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

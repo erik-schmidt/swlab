@@ -1,0 +1,7 @@
+<resources>
+    <string-array name="alarmtone_array">
+        <item>Mario</item>
+        <item>Nuclear</item>
+        <item>Minecraft</item>
+    </string-array>
+</resources>

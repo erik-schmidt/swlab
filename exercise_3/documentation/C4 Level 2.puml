@@ -1,0 +1,17 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4.puml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Component.puml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Context.puml
+
+Person(player, "Player", "User of the game with personal accounts")
+System_Boundary(bomerman, "Bomberman on Ice") {
+    Container(mobileApp, "Mobile App", "Java MVVM", "Provides a internet multiplayer game")
+    Container(webApplication, "Web Application", "Java and Spring MVC", "Delivers players currently online and games currently active")
+    Container(okHttpApi, "OkHttp API", "Java MVVM", "Provides Game functionality via JSON/HTTPS API")
+}
+Rel(player, mobileApp, "uses", "HTTPS")
+Rel(webApplication, mobileApp, "delivers", "Websocket")
+Rel(mobileApp, okHttpApi, "uses", "JSON/HTTPS")
+
+@enduml

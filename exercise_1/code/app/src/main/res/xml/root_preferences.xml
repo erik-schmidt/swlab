@@ -1,0 +1,22 @@
+<!--suppress DeprecatedClassUsageInspection -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:defaultValue="true"
+        app:key="Alarm"
+        app:title="@string/clock">
+
+        <ListPreference
+            app:defaultValue="true"
+            app:entries="@array/alarmtone_array"
+            app:entryValues="@array/alarm_tone_names"
+            app:key="alarmtones"
+            app:negativeButtonText="@string/cancel"
+            app:positiveButtonText="@string/save"
+            app:summary="@string/select_alarm_tone"
+            app:title="@string/alarm_tone" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

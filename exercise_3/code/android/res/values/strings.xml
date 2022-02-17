@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Bomberman on Ice</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="not_registered_yet">Not registered yet?</string>
+    <string name="login">Login</string>
+    <string name="sign_up_now">Sign up now</string>
+    <string name="new_game">New Game</string>
+    <string name="join_game">Join Game</string>
+    <string name="cancel">Cancel</string>
+    <string name="start">Start</string>
+    <string name="register">Register</string>
+    <string name="select_competition">Select Competition</string>
+    <string name="game_over">Game Over!</string>
+    <string name="you_lose">You Lose!</string>
+    <string name="you_win">You Win!</string>
+    <string name="playerName">playerName</string>
+    <string name="waiting_for_player">Waiting For Player</string>
+    <string name="refresh">refresh</string>
+
+</resources>

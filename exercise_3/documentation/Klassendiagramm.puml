@@ -1,0 +1,134 @@
+@startuml
+package "model" {
+    class Bomb {
+        radius :
+        location : Location
+    }
+    class Location
+    class User {
+        id : String
+        token : String
+        username : String
+        password : String
+        alive : boolean
+        bombs : Bomb[]
+        location : Location
+    }
+}
+
+package "network" {
+    interface RetrofitAPI {
+        URL : String
+        Call<Void> registerUser(@Body user : User)
+        Call<User> loginUser(@Body user : User)
+        Call<Void> createGameRoom(@Header ("Authorization") token : String)
+        Call<Void> deleteGameRoom(@Header ("Authorization") token : String)
+    }
+    interface WebSocketAPI
+}
+
+package "view" {
+    class GameActivity
+    class LoginActivity
+    class MainActivity
+    class PlayerRoomActivity
+    class RegisterActivity
+    class RoomListActivity
+}
+
+package "viewModel" {
+    class GameViewModel {
+        token : String
+        userID : String
+        username : String
+        webSocketAPI : WebSocketAPI
+        void onThrowBomb(view : View)
+        void onBombExplosion(view : View)
+        void onTilt(view : View)
+    }
+    class HomeViewModel {
+        token : String
+        userID : String
+        username : String
+        retrofitAPI : RetrofitAPI
+        webserviceListener : WebserviceListener
+        void onCreateNewGame(view : View)
+        void onJoinGameButtonClick(view : View)
+    }
+    class LoginViewModel {
+        username : String
+        password : String
+        retrofitAPI : RetrofitAPI
+        loginListener : LoginListener
+        webserviceListener : WebserviceListener
+        userLiveData : MutableLiveData<User>
+        void onLoginButtonClick(view : View)
+        void onRegisterButtonClick(view : View)
+    }
+    class PlayerRoomViewModel {
+        webSocketAPI : WebSocketAPI
+        token : String
+        userID : String
+        username : String
+        onCancelButtonClick(view : View)
+        onStartGameButtonClick(view : View)
+    }
+    class RegisterViewModel {
+        username : String
+        password : String
+        retrofitAPI : RetrofitAPI
+        registerListener : RegisterListener
+        webserviceListener : WebserviceListener
+        userLiveData : MutableLiveData<User>
+        void onRegisterButtonClick(view : View)
+        void loginUser(user : User)
+        void onCancelButtonClick(view : View)
+    }
+    class RoomListViewModel {
+        token : String
+        userID : String
+        username : String
+        webSocketAPI : WebSocketAPI
+        onCancelButtonClick(view : View)
+        onJoinGameButtonClick(view : View)
+    }
+    interface LoginListener {
+        void onSuccess(message : String, userLiveData : LiveData<User>)
+        void onRegister();
+    }
+    interface RegisterListener {
+        void onSuccess(message : String, userLiveData : LiveData<User>)
+        void onCancel();
+    }
+    interface WebserviceListener {
+        void onSuccess(message : String)
+        void onFailure(message : String)
+        void onNoConnection(message : String)
+        void onTokenExpired(message : String)
+    }
+}
+User --|> RetrofitAPI
+User -- Location
+Bomb -- User
+Bomb -- Location
+LoginListener --|> LoginActivity
+RegisterListener --|> RegisterActivity
+WebserviceListener --|> GameActivity
+WebserviceListener --|> MainActivity
+WebserviceListener --|> PlayerRoomActivity
+WebserviceListener --|> RoomListActivity
+LoginViewModel --* LoginActivity
+RegisterViewModel --* RegisterActivity
+HomeViewModel --* MainActivity
+GameViewModel --* GameActivity
+PlayerRoomViewModel --* PlayerRoomActivity
+RoomListViewModel --* RoomListActivity
+RetrofitAPI --|> LoginViewModel
+RetrofitAPI --|> RegisterViewModel
+RetrofitAPI --|> HomeViewModel
+WebSocketAPI --|> GameViewModel
+WebSocketAPI --|> RoomListViewModel
+WebSocketAPI --|> PlayerRoomViewModel
+WebSocketAPI -- Bomb
+WebSocketAPI -- User
+@enduml

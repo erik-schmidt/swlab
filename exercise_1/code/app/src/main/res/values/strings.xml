@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Alarm Clock</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Sync Preferences -->
+    <string name="Settings">Settings</string>
+    <string name="Alarm_Clock">Alarm Clock</string>
+    <string name="Create_Alarm">Create Alarm</string>
+    <string name="name">Name</string>
+    <string name="alarmtime">AlarmTime</string>
+    <string name="alarmname">alarmname</string>
+    <string name="alarm_tone">Alarm Tone</string>
+    <string name="clock">Clock</string>
+    <string name="select_alarm_tone">Select your alarm tone</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="timeText">TextView</string>
+    <string name="alarmName">TextView</string>
+    <string name="delete_alarms">Delete Alarms</string>
+    <string name="delete">Delete</string>
+    <string name="wakelock">wakelock</string>
+    <string-array name="alarm_tone_names">
+        <item>Mario</item>
+        <item>Nuclear</item>
+        <item>Minecraft</item>
+    </string-array>
+</resources>

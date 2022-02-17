@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Marauder\'s Map</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="sign_up_now">Sign up now!</string>
+    <string name="not_registered_yet">Not registered yet?</string>
+    <string name="register">Register</string>
+    <string name="description">Description</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="radius">Radius</string>
+    <string name="update_interval">Update Interval</string>
+    <string name="visibility_options">Visibility Options</string>
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
+
+    <string name="select_radius">Select the radius in km</string>
+    <string name="select_update_string">Select the update interval in sec</string>
+    <string name="show_location_history">Show Location History</string>
+    <string name="back_to_your_position">Back to your position</string>
+    <string name="logout">Logout</string>
+
+</resources>

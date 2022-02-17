@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+actor User
+actor Webservice as Rest <<RestAPI>>
+actor WebSocketAPI as Socket <<WebSocket>>
+
+rectangle Game {
+    User -- (Login)
+    (Login) -- Rest
+    User -- (Register)
+    (Register) -- Rest
+    User -- (Host Game)
+    (Host Game) -- Rest
+    User -- (Start Game)
+    (Start Game) -- Socket
+    User -- (Join Game)
+    (Join Game) -- Rest
+    User -- (Throw Bomb)
+    (Throw Bomb) -- Socket
+    User -- (Move Player)
+    (Move Player) -- Socket
+}
+@enduml
